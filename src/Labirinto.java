@@ -124,7 +124,7 @@ while (true){
         String movimento = scanner.next();
         movimentoGiocatore(movimento);
     } catch (ArrayIndexOutOfBoundsException e) {
-        System.out.println("SEI RIUSCITO A SCAPPERE");
+        System.out.println("SEI RIUSCITO A SCAPPARE");
         break;
     }
 
