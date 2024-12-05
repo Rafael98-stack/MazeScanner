@@ -66,26 +66,16 @@ static void movimentoGiocatore(String awsd){
     int newPositionY = positionPlayerY;
     switch (awsd){
         case "a":
-newPositionX--;
+newPositionY--;
 if (labirinto[newPositionX][newPositionY] == 0){
     System.out.println("posizione non valida");
-    newPositionX++;
+    newPositionY++;
 } else {
     labirinto[positionPlayerX][positionPlayerY] = 1;
     labirinto[newPositionX][newPositionY] = 2;
 }
             break;
         case "d":
-            newPositionX++;
-            if (labirinto[newPositionX][newPositionY] == 0){
-                System.out.println("posizione non valida");
-                newPositionX--;
-            } else {
-                labirinto[positionPlayerX][positionPlayerY] = 1;
-                labirinto[newPositionX][newPositionY] = 2;
-            }
-            break;
-        case "w":
             newPositionY++;
             if (labirinto[newPositionX][newPositionY] == 0){
                 System.out.println("posizione non valida");
@@ -95,18 +85,30 @@ if (labirinto[newPositionX][newPositionY] == 0){
                 labirinto[newPositionX][newPositionY] = 2;
             }
             break;
-        case "s":
-            newPositionY--;
+        case "w":
+            newPositionX--;
             if (labirinto[newPositionX][newPositionY] == 0){
                 System.out.println("posizione non valida");
-                newPositionY++;
+                newPositionX++;
+            } else {
+                labirinto[positionPlayerX][positionPlayerY] = 1;
+                labirinto[newPositionX][newPositionY] = 2;
+            }
+            break;
+        case "s":
+            newPositionX++;
+            if (labirinto[newPositionX][newPositionY] == 0){
+                System.out.println("posizione non valida");
+                newPositionX--;
             } else {
                 labirinto[positionPlayerX][positionPlayerY] = 1;
                 labirinto[newPositionX][newPositionY] = 2;
             }
             break;
     }
-};
+    System.out.println();
+  stampaLabirinto();
+}
 
     public static void main(String[] args) {
         System.out.println("BENVENUTO IN MAZERUNNER");
@@ -115,8 +117,14 @@ if (labirinto[newPositionX][newPositionY] == 0){
         System.out.println("CERCA DI SCAPPARE, SEI RAPPRESENTATO CON IL NUMERO 2");
       posizionamentoGiocatore();
 
-        System.out.println("PREMI UNO DI QUESTI TASTI: AWSD. PER MUOVERTI.");
         Scanner scanner = new Scanner(System.in);
+while (true){
+        System.out.println("PREMI UNO DI QUESTI TASTI: AWSD. PER MUOVERTI.");
 String movimento = scanner.next();
+movimentoGiocatore(movimento);
+   /* for (){
+
+    }*/
+}
     }
 }
