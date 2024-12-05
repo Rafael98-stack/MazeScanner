@@ -114,17 +114,20 @@ if (labirinto[newPositionX][newPositionY] == 0){
         System.out.println("BENVENUTO IN MAZERUNNER");
       stampaLabirinto();
 
-        System.out.println("CERCA DI SCAPPARE, SEI RAPPRESENTATO CON IL NUMERO 2");
+        System.out.println("CERCA DI SCAPPARE, SEI RAPPRESENTATO CON IL NUMERO 2. Arriva oltre il numero 3");
       posizionamentoGiocatore();
 
         Scanner scanner = new Scanner(System.in);
 while (true){
         System.out.println("PREMI UNO DI QUESTI TASTI: AWSD. PER MUOVERTI.");
-String movimento = scanner.next();
-movimentoGiocatore(movimento);
-   /* for (){
+    try {
+        String movimento = scanner.next();
+        movimentoGiocatore(movimento);
+    } catch (ArrayIndexOutOfBoundsException e) {
+        System.out.println("SEI RIUSCITO A SCAPPERE");
+        break;
+    }
 
-    }*/
 }
     }
 }
