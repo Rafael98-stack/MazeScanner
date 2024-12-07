@@ -25,7 +25,16 @@ public class Labirinto {
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
 static String[] Inventario = new String[0];
+    int Mostro = 5;
+    int Arma = 4;
+static Random random = new Random();
 
+static int randomArrayLines(){
+    return random.nextInt(labirinto.length);
+}
+static int randomArrayColumn(){
+    return random.nextInt(labirinto[randomArrayLines()].length);
+}
     static void stampaLabirinto() {
         for (int i = 0; i < labirinto.length; i++) {
             for (int j = 0; j < labirinto[i].length; j++) {
@@ -36,14 +45,50 @@ static String[] Inventario = new String[0];
         System.out.println();
     }
     static void inserisciMobEArmi(int numeroDiMostri, int numeroDiArmi){
+        System.out.println("Inserimento Mostri e Armi nel mondo di Gioco... Attendere");
         int[][] labirintoCheck = labirinto;
         int Mostri = numeroDiMostri;
         int Armi = numeroDiArmi;
         for (int riga = 0; riga < Mostri ; riga++ ){
             for (int colonna = 0 ; colonna < Mostri ; colonna++){
-
+switch (labirintoCheck[riga][colonna]){
+    case 0:
+        continue;
+    case 1:
+        labirintoCheck[randomArrayLines()][randomArrayColumn()] = 5;
+        break;
+    case 2:
+        continue;
+    case 3:
+        continue;
+    case 4:
+        continue;
+    case 5:
+        continue;
+}
             }
         }
+        for (int riga = 0; riga < Armi ; riga++ ){
+            for (int colonna = 0 ; colonna < Armi ; colonna++){
+                switch (labirintoCheck[riga][colonna]){
+                    case 0:
+                        continue;
+                    case 1:
+                        labirintoCheck[randomArrayLines()][randomArrayColumn()] = 4;
+                        break;
+                    case 2:
+                        continue;
+                    case 3:
+                        continue;
+                    case 4:
+                        continue;
+                    case 5:
+                        continue;
+                }
+            }
+        }
+        labirinto=labirintoCheck;
+        System.out.println();
     }
     static void posizionamentoGiocatore() {
         Random random = new Random();
@@ -128,6 +173,8 @@ if (labirinto[newPositionX][newPositionY] == 0){
         System.out.println("CERCA DI SCAPPARE, SEI RAPPRESENTATO CON IL NUMERO 2. Arriva oltre il numero 3");
       posizionamentoGiocatore();
 
+        System.out.println("Attento AI MOSTRI... HAI ANCHE A DISPOSIZIONE DELLE ARMI ALL'INTERNO DELLA MAPPA");
+        inserisciMobEArmi(3,3);
         Scanner scanner = new Scanner(System.in);
 while (true){
         System.out.println("PREMI UNO DI QUESTI TASTI: AWSD. PER MUOVERTI.");
