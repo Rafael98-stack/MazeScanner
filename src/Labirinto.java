@@ -24,6 +24,7 @@ public class Labirinto {
             {0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
+static String[] Inventario = new String[0];
 
     static void stampaLabirinto() {
         for (int i = 0; i < labirinto.length; i++) {
@@ -33,6 +34,16 @@ public class Labirinto {
             System.out.println();
         }
         System.out.println();
+    }
+    static void inserisciMobEArmi(int numeroDiMostri, int numeroDiArmi){
+        int[][] labirintoCheck = labirinto;
+        int Mostri = numeroDiMostri;
+        int Armi = numeroDiArmi;
+        for (int riga = 0; riga < Mostri ; riga++ ){
+            for (int colonna = 0 ; colonna < Mostri ; colonna++){
+
+            }
+        }
     }
     static void posizionamentoGiocatore() {
         Random random = new Random();
